@@ -28,7 +28,7 @@
 
     <!--mybatis调用存储过程-->
     <select id="killByProcedure" statementType="CALLABLE">
-        CALL execute_seckill(
+        CALL execute_seckillnew(
                 #{seckillId,jdbcType=BIGINT,mode=IN},
                 #{phone,jdbcType=BIGINT,mode=IN},
                 #{killTime,jdbcType=TIMESTAMP,mode=IN},
