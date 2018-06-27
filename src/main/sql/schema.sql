@@ -28,7 +28,7 @@ INSERT INTO `seckill` (name,number,start_time,end_time)
 
 -- 秒杀成功明细表
 -- 用户登录认证相关信息
-CREATE TABLE `sucess_killed`(
+CREATE TABLE `success_killed`(
   `seckill_id` BIGINT NOT NULL COMMENT '秒杀商品id',
   `user_phone` BIGINT NOT NULL COMMENT '用户手机号',
   `state` TINYINT NOT NULL DEFAULT -1 COMMENT '状态标示：-1：无效 0：成功 1：已付款',
