@@ -22,6 +22,9 @@ public class RedisDao {
 
     private RuntimeSchema<Seckill> schema = RuntimeSchema.createFrom(Seckill.class);
 
+    /**
+     * 从redis的缓存中取数据
+     * */
     public Seckill getSeckill(long seckillId) {
 
         // redis操作逻辑
@@ -54,6 +57,9 @@ public class RedisDao {
         return null;
     }
 
+    /**
+     * 将数据库的值放入redis当中
+     * */
     public String putSeckill(Seckill seckill) {
 
         // set Object(Seckill)->序列化->byte[]
@@ -65,6 +71,7 @@ public class RedisDao {
                         LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE));
                 // 超时缓存
                 int timeOut = 60 * 60; // 1小时
+                // 放入redis
                 String result = jedis.setex(key.getBytes(), timeOut, bytes);
                 // 错误时返回错误信息，正确时返回ok
                 return result;
